@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>YelpCamp</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/stylesheets/landing.css">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    </head>
+    <body>
+
+<h1 id="movgle">Jo's Movgle</h1>
+<hr>
+    
+<ul>
+    <% data["Search"].forEach(function(movie){ %>
+    
+            <% var imdb_url = "https://www.imdb.com/title/" + movie['imdbID']
+            %>
+           <li class="movielist">
+            <div class= "pad">
+                <img class="img-responsive img-thumbnail" src= '<%= movie['Poster'] %>' alt="">   
+            </div>
+            <div class="fonty">
+               <strong>
+                    <%= movie["Title"] %> 
+                </strong> 
+                (<em><%= movie["Year"] %></em>)
+                <a target="_blank" rel="noopener noreferrer" href="<%= imdb_url %>">      View on IMDB</a>
+            </div>
+            </li>
+            <% }) %>
+</ul>
+
+
+<div class= "container" id="sagain">
+<a href = "/">Search again</a>
+</div>
+
+ </body>
+</html>
